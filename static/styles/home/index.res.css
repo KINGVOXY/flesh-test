@@ -1,0 +1,21 @@
+@media screen and (max-width: 510px) {
+    .show.bg-res-light {
+        background-color: #f8f9fabe;
+    }
+    .show.bg-res-dark {
+        background-color: #343a40be;
+    }
+    
+    .cap {
+        margin: 1em auto;
+        text-align: center;
+        font-size: 3em !important;
+    }
+    .works {
+        display: block;
+    }
+
+    .work.card {
+        margin: 1em auto;
+    }
+}

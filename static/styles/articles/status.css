@@ -1,0 +1,101 @@
+main {
+    min-height: calc(100vh - 80px * 2 - 2px) !important;
+}
+
+.status {
+    max-width: 700px;
+    line-height: 1.5em ;
+}
+
+.status * {
+    font-family: 'Zen Maru Gothic', sans-serif !important;
+    font-weight: 500;
+}
+
+.status > .name {
+    text-align: center;
+    opacity: .9;
+}
+
+.status > .createdAt,
+.status>.updatedAt {
+    text-align: right;
+    font-size: .9em;
+    opacity: .8;
+}
+
+.status > .himg {
+    margin-bottom: 2em;
+}
+
+.status > .himg > img {
+    width: 100%;
+    max-height: 300px;
+    min-height: 150px;
+    object-fit: cover;
+}
+
+#content img {
+    max-width: 100%;
+    box-shadow: 0 0 3px var(--dark);
+}
+
+.status > .content {
+    margin-top: 5em;
+}
+
+.status > .content > * {
+    font-size: .9em;
+}
+
+.status > .content > p {
+    line-height: 1.5em ;
+    margin: 1.5em 0;
+}
+
+.status > .content > h1,
+.status > .content > h2,
+.status > .content > h3,
+.status > .content > h4,
+.status > .content > h5,
+.status > .content > h6 {
+    margin-top: 2em;
+}
+
+.status > .content > h1,
+.status > .content > h2 {
+    border-bottom: solid 1.5px ;
+    font-size: 1.4em;
+}
+.status > .content > h3,
+.status > .content > h4 {
+    font-size: 1.2em;
+    
+}
+.status > .content > h5,
+.status > .content > h6 {
+    font-size: 1em;
+}
+
+.status > .content b,
+.status >.content strong {
+    font-weight: 700;
+    background: linear-gradient(transparent 60%, #ffcc99 0%);
+}
+
+.status > .content a {
+    color: var(--cyan);
+    border-bottom: solid 1.5px;
+}
+
+.status > .content > pre {
+    border-radius: .25rem;
+}
+
+img.emoji {
+    height: 1.4em;
+    width: 1.4em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.4em;
+    box-shadow: none !important;
+}
