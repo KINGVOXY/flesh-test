@@ -1,0 +1,29 @@
+.cap {
+    font-size: 5em !important;
+    opacity: .7;
+    padding: .4em 1em !important;
+    padding-top: .7em !important;
+    margin: 0 !important;
+}
+
+table {
+    width: 75% !important;
+    margin: auto;
+}
+
+@media screen and (max-width: 510px) {
+    .cap {
+            margin: 1em auto !important;
+            text-align: center;
+            font-size: 3em !important;
+    }
+
+    table {
+        width: 95% !important;
+    }
+
+    .mini {
+        display: none;
+    }
+
+}

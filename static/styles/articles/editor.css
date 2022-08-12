@@ -1,0 +1,93 @@
+.editor {
+    height: 70vh;
+}
+
+#content {
+    width: 50%;
+    height: 100%;
+    font-size: .8rem;
+    font-family: 'M PLUS 1 Code' !important;
+    color: var(--teal);
+    resize: none;
+}
+
+#preview {
+    height: auto;
+    width: 50%;
+    min-height: 100%;
+    max-height: 100%;
+
+    padding: 1em;
+
+    overflow: auto;
+    
+    font-size: .8rem;
+    
+    border: 1px solid #e9ecef;
+    border-radius: .25rem;
+}
+
+pre {
+    background-color: var(--dark);
+    padding: .7rem 1rem;
+    color: var(--light);
+    border-radius: .25rem;
+}
+
+#preview>* {
+    font-size: .9em;
+}
+
+#preview>p {
+    line-height: 1.5em;
+    margin: 1.5em 0;
+}
+
+#preview>h1,
+#preview>h2,
+#preview>h3,
+#preview>h4,
+#preview>h5,
+#preview>h6 {
+    margin-top: 2em;
+}
+
+#preview>h1,
+#preview>h2 {
+    border-bottom: solid 1.5px;
+    font-size: 1.4em;
+}
+
+#preview>h3,
+#preview>h4 {
+    font-size: 1.2em;
+
+}
+
+#preview>h5,
+#preview>h6 {
+    font-size: 1em;
+}
+
+#preview b,
+#preview strong {
+    font-weight: 700;
+    background: linear-gradient(transparent 60%, #ffcc99 0%);
+}
+
+#preview a {
+    color: var(--cyan);
+    border-bottom: solid 1.5px;
+}
+
+#preview>pre {
+    border-radius: .25rem;
+}
+
+img.emoji {
+    height: 1.4em;
+    width: 1.4em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.4em;
+    box-shadow: none !important;
+}

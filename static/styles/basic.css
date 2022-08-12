@@ -1,0 +1,51 @@
+html {
+    scrollbar-width: none;
+    /*Firefox対応のスクロールバー非表示コード*/
+    -ms-overflow-style: none;
+    /*Internet Explore対応のスクロールバー非表示コード*/
+}
+
+*:not(i) {
+    font-family: 'Zen Maru Gothic' !important;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+    /*Google Chrome、Safari、Microsoft Edge対応のスクロールバー非表示コード*/
+}
+
+
+
+section {
+    min-height: 100vh;
+}
+
+.nav-icon {
+    opacity: .8;
+}
+
+.nav-icon:hover {
+    opacity: 1;
+}
+
+/* footer */
+footer {
+    position: relative;
+    height: 72px;
+}
+
+footer .wr-copy {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+footer small {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    bottom: 5px;
+}
