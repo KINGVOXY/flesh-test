@@ -39,29 +39,21 @@ export async function getLimitNew(num: number) {
  * @returns 
  */
 export async function getAllNew() {
-    let result = "";
+    let result = [];
 
     const articles = (await handler.findAll()).reverse();
     for (const article of articles) {
-        const id = article._id;
-        const imageUrl = (article.imageUrl) ? article.imageUrl : "/views/assets/images/about.png";
-        const name = article.name;
+        const id =       article.id;
+        const imageUrl = (article.imageUrl) ? article.imageUrl : "/images/about.png";
+        const name =     article.name;
         const time = unixtimeToJST(article.createdAt);
-        result += `
-        <a href="/blogs/status/${id}" class="article card">
-            <div class="d-flex">
-                <div class="col-md-4">
-                    <img src="${imageUrl}" class="card-img rounded-0" alt="image">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${name}</h5>
-                        <p class="card-text"><small class="text-muted">${time}</small></p>
-                    </div>
-                </div>
-            </div>
-        </a>
-        `
+        
+        result.push({
+            id: id,
+            imageUrl: imageUrl,
+            name: name,
+            time: time
+        });
     }
 
     return result;
