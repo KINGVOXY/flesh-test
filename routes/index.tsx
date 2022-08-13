@@ -1,21 +1,43 @@
 /** @jsx h */
 import { h } from "preact";
-import { PageProps } from "$fresh/server.ts";
-import { Head } from "https://deno.land/x/fresh@1.0.2/src/runtime/head.ts";
+import {
+  PageProps,
+  Handlers
+} from "$fresh/server.ts";
+import { Head } from "$fresh/src/runtime/head.ts";
+import BasicHead from '../islands/BasicHead.tsx';
 import BasicFooter from '../islands/BasicFooter.tsx';
+import { getLimitNew } from "../utils/articles/helper.ts";
 
 
-export default function Home(props: PageProps) {
+interface Article {
+  id: number;
+  name: string;
+  imageUrl: string;
+  time: string;
+}
+
+
+export const handler: Handlers<Article[]> = {
+  async GET(_, ctx) {
+    const articles = await getLimitNew(3);
+    return ctx.render(articles);
+  },
+};
+
+
+export default function Home({ data }: PageProps<Article[] | null>) {
+  if (!data) {
+    return <div>Not Found</div>;
+  }
+
   return (
     <div>
       <Head>
         <title>Daruo</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-        <link rel="stylesheet" href="/styles/avantui.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"></link>
-        <link rel="stylesheet" href="/styles/basic.css" />
-        <link rel="stylesheet" href="/styles/fonts.css" />
+        <BasicHead/>
         <link rel="stylesheet" href="/styles/anime.css" />
+        <link rel="stylesheet" href="/styles/basic.css" />
         <link rel="stylesheet" href="/styles/home/index.css" />
         <link rel="stylesheet" href="/styles/home/index.res.css" />
       </Head>
@@ -154,7 +176,7 @@ export default function Home(props: PageProps) {
         {/* Blog ブログ記事 */}
         <section id="blog" style="position:relative;">
           <h2 class="cap">Blog</h2>
-            <h3 style={`
+            {/* <h3 style={`
             position: absolute;
             top: 50%;
             left:50%;
@@ -162,32 +184,30 @@ export default function Home(props: PageProps) {
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
-            `}>工事中 <i class="far fa-solid fa-person-digging"></i></h3>
+            `}>工事中 <i class="far fa-solid fa-person-digging"></i></h3> */}
           <div id="articleBox" class="articles container op-0">
             {/* 記事が最大3件表示される */}
-
-
-            {/* 
-            <a href="/blogs/status/62f2b843e50dab1b51a01e8a" class="article card">
-              <div class="d-flex">
-                <div class="col-md-4">
-                  <img src="http://drive.google.com/uc?export=view&amp;id=1cAmGoP9LgNjqsntPOIIs0DC5zV0kPVPa" class="card-img rounded-0" alt="image" />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Webフレームワークを共同製作しました</h5>
-                    <p class="card-text"><small class="text-muted">2021/11/13 21:16</small></p>
+            {data.map((article) => (
+              <a href={`/blogs/${article.id}/status`} class="article card">
+                <div class="d-flex">
+                  <div class="col-md-4">
+                    <img src={`${article.imageUrl}`} class="card-img rounded-0" alt="image" />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{article.name}</h5>
+                        <p class="card-text"><small class="text-muted">{article.time}</small></p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a> 
-            */}
+              </a>  
+            ))}
 
           </div>
 
-          {/* <div class="wr-show container">
+          <div class="wr-show container">
             <a class="show-more" href="/blogs/">show more</a>
-          </div> */}
+          </div>
         </section>
         <div class="divider divider-dashed"></div>
         
