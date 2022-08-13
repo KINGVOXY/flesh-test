@@ -8,5 +8,5 @@ import { format } from "datetime/mod.ts";
  */
 export function unixtimeToJST(unixtime: number): string {
     const utc = datetime(unixtime)
-    return format(new Date(utc.year, utc.month - 1, utc.day, utc.hour, utc.minute), "yyyy/MM/dd HH:mm");
+    return format(new Date(utc.year, utc.month - 1, utc.day, utc.hour+9, utc.minute), "yyyy/MM/dd HH:mm");
 }
