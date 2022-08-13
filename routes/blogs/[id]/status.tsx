@@ -52,6 +52,7 @@ export const handler: Handlers<ArticleSchema> = {
 export default function Neko({data}: PageProps<ArticleSchema>) {
   const parsed = marked(data.content);
   const content = sanitize(parsed);
+  const imageUrl = data.imageUrl? data.imageUrl : "/images/about.png";
 
   return (
     <Fragment>
@@ -95,7 +96,7 @@ export default function Neko({data}: PageProps<ArticleSchema>) {
   
   
           <div class="himg">
-              <img src={`${data.imageUrl}`} alt="" srcset="" />
+              <img src={`${imageUrl}`} alt="" srcset="" />
           </div>
   
           <div id="content" class="content container" dangerouslySetInnerHTML={{__html: content}}></div>
