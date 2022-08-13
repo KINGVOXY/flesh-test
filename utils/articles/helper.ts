@@ -2,8 +2,6 @@ import * as handler from "./handler.ts";
 import { updateIdx } from "../latestId/handler.ts";
 import { unixtimeToJST } from "../funcs/time.ts";
 import { ArticleSchema } from '../db/articles.ts';
-import { marked } from "marked";
-import sanitize from "sanitize-html";
 
 
 /**
@@ -100,7 +98,7 @@ export async function insertOne(data: any) {
  * @param id 
  * @returns 
  */
-export async function findOne(id: string) {
+export async function findOne(id: number) {
     return await handler.findOneById(id);
 }
 

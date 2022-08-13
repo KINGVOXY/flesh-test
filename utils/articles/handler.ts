@@ -29,9 +29,9 @@ export async function findLimitNew(num: number) {
  * @param id 
  * @returns 
  */
-export async function findOneById(id: string) {
+export async function findOneById(id: number) {
     try {
-        return await Articles.findOne({ _id: new ObjectId(id) });
+        return await Articles.findOne({ id: id });
     } catch (error) {
         return undefined;
     }
