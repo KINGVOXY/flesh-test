@@ -3,6 +3,13 @@
     "$fresh/": "https://deno.land/x/fresh@1.0.2/",
     "preact": "https://esm.sh/preact@10.10.0",
     "preact/": "https://esm.sh/preact@10.10.0/",
-    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.1?external=preact"
+    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.1?external=preact",
+    "dotenv/": "https://deno.land/x/dotenv@v3.2.0/",
+    "@db/": "https://deno.land/x/mongo@v0.31.0/",
+    "marked": "https://esm.sh/marked@4.0.17",
+    "sanitize-html": "https://esm.sh/sanitize-html@2.7.0",
+    "ptera/": "https://deno.land/x/ptera/",
+    "datetime/": "https://deno.land/std@0.95.0/datetime/",
+    "validate/": "https://deno.land/x/schema_validator@v0.0.3/src/"
   }
 }
