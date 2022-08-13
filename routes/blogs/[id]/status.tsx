@@ -96,7 +96,7 @@ export default function Neko({data}: PageProps<ArticleSchema>) {
   
   
           <div class="himg">
-              <img src={`${imageUrl}`} alt="" srcset="" />
+              <img src={`${imageUrl}`} />
           </div>
   
           <div id="content" class="content container" dangerouslySetInnerHTML={{__html: content}}></div>
