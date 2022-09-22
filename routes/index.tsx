@@ -188,7 +188,7 @@ export default function Home({ data }: PageProps<Article[] | null>) {
           <div id="articleBox" class="articles container op-0">
             {/* 記事が最大3件表示される */}
             {data.map((article) => (
-              <a href={`/blogs/${article.id}/status`} class="article card">
+              <a href={`/articles/${article.id}/status`} class="article card">
                 <div class="d-flex">
                   <div class="col-md-4">
                     <img src={`${article.imageUrl}`} class="card-img rounded-0" alt="image" />
@@ -206,7 +206,7 @@ export default function Home({ data }: PageProps<Article[] | null>) {
           </div>
 
           <div class="wr-show container">
-            <a class="show-more" href="/blogs/">show more</a>
+            <a class="show-more" href="/articles/">show more</a>
           </div>
         </section>
         <div class="divider divider-dashed"></div>

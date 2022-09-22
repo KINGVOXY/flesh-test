@@ -5,9 +5,9 @@ $("#fbtn").click(async function () {
     await postData(location.pathname, getPostElements(postIds))
         .then(res => {
             if (res.ok) {
-                location.href = "/blogs/manage?message=記事の編集が完了しました&status=0"
+                location.href = "/articles/manage?message=記事の編集が完了しました&status=0"
             } else {
-                location.href = "/blogs/manage?message=記事の編集に失敗しました&status=1"
+                location.href = "/articles/manage?message=記事の編集に失敗しました&status=1"
             }
         });
 });

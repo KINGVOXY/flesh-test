@@ -30,7 +30,7 @@ export const handler: Handlers<ArticleSchema> = {
       return new Response("", {
         status: 303,
         headers: {
-          Location: "/blogs/",
+          Location: "/articles/",
         },
       });
     }
@@ -39,7 +39,7 @@ export const handler: Handlers<ArticleSchema> = {
       return new Response("", {
         status: 303,
         headers: {
-          Location: "/blogs/",
+          Location: "/articles/",
         },
       });
     }
@@ -79,7 +79,7 @@ export default function Neko({data}: PageProps<ArticleSchema>) {
                 <a class="nav-link" href="/">Portfolio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/blogs/">Index</a>
+                <a class="nav-link" href="/articles/">Index</a>
               </li>
             </ul>
           </div>

@@ -93,7 +93,7 @@ export default function Login({data}: PageProps<Data | undefined>) {
                 <a class="nav-link" href="/">Portfolio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/blogs/">Index</a>
+                <a class="nav-link" href="/articles/">Index</a>
               </li>
             </ul>
           </div>

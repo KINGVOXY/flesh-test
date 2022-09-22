@@ -72,10 +72,10 @@ export async function getAllManage() {
         const cAt = unixtimeToJST(article.createdAt);
         result += `
         <tr>
-            <th scope="row"><a href="/blogs/status/${id}" class="text-dark">${name}</a></th>
+            <th scope="row"><a href="/articles/status/${id}" class="text-dark">${name}</a></th>
             <td class="mini">${cAt}</td>
-            <td><a class="btn btn-sm btn-primary" href="/blogs/edit/${id}" role="button">Edit</a></td>
-            <td><button type="button" class="btn btn-sm btn-outline-danger btn-delete" data-toggle="modal" data-target="#deleteModal" data-href="/blogs/delete/${id}">Delete</button></td>
+            <td><a class="btn btn-sm btn-primary" href="/articles/edit/${id}" role="button">Edit</a></td>
+            <td><button type="button" class="btn btn-sm btn-outline-danger btn-delete" data-toggle="modal" data-target="#deleteModal" data-href="/articles/delete/${id}">Delete</button></td>
         </tr>
         `;
     }
