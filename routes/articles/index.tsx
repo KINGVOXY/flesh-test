@@ -59,7 +59,7 @@ export default function BlogIndex({ data }: PageProps<Article[] | null>) {
                 <a class="nav-link" href="/">Portfolio</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="/blogs/">Index</a>
+                <a class="nav-link" href="/articles/">Index</a>
               </li>
             </ul>
           </div>
@@ -70,7 +70,7 @@ export default function BlogIndex({ data }: PageProps<Article[] | null>) {
         <h2 class="cap">Articles</h2>
         <div class="articles container fadeRight">
             {data.map((article) => (
-              <a href={`/blogs/${article.id}/status`} class="article card">
+              <a href={`/articles/${article.id}/status`} class="article card">
                 <div class="d-flex">
                   <div class="col-md-4">
                     <img src={`${article.imageUrl}`} class="card-img rounded-0" alt="image" />

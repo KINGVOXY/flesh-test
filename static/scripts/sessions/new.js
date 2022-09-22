@@ -11,7 +11,7 @@ $("#fbtn").click(async function () {
         .then(res => {
             console.log(res);
             if (res.ok) {
-                location.href = "/blogs/manage"
+                location.href = "/articles/manage"
             } else {
                 location.href = "/login?message=メールアドレス、パスワードが違います。"
             }
