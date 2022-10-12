@@ -3,13 +3,11 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $0 from "./routes/_middleware.ts";
-import * as $1 from "./routes/articles/[id]/edit.tsx";
-import * as $2 from "./routes/articles/[id]/status.tsx";
-import * as $3 from "./routes/articles/index.tsx";
-import * as $4 from "./routes/articles/manage.tsx";
-import * as $5 from "./routes/articles/new.tsx";
-import * as $6 from "./routes/index.tsx";
-import * as $7 from "./routes/sessions/new.tsx";
+import * as $1 from "./routes/articles/[id]/status.tsx";
+import * as $2 from "./routes/articles/index.tsx";
+import * as $3 from "./routes/blog/[id]/status.tsx";
+import * as $4 from "./routes/blog/index.tsx";
+import * as $5 from "./routes/index.tsx";
 import * as $$0 from "./islands/BasicFooter.tsx";
 import * as $$1 from "./islands/BasicHead.tsx";
 import * as $$2 from "./islands/Counter.tsx";
@@ -17,13 +15,11 @@ import * as $$2 from "./islands/Counter.tsx";
 const manifest = {
   routes: {
     "./routes/_middleware.ts": $0,
-    "./routes/articles/[id]/edit.tsx": $1,
-    "./routes/articles/[id]/status.tsx": $2,
-    "./routes/articles/index.tsx": $3,
-    "./routes/articles/manage.tsx": $4,
-    "./routes/articles/new.tsx": $5,
-    "./routes/index.tsx": $6,
-    "./routes/sessions/new.tsx": $7,
+    "./routes/articles/[id]/status.tsx": $1,
+    "./routes/articles/index.tsx": $2,
+    "./routes/blog/[id]/status.tsx": $3,
+    "./routes/blog/index.tsx": $4,
+    "./routes/index.tsx": $5,
   },
   islands: {
     "./islands/BasicFooter.tsx": $$0,
