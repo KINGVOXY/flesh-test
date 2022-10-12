@@ -10,6 +10,7 @@ import {
 import { Head } from "$fresh/src/runtime/head.ts";
 import BasicHead from '../../islands/BasicHead.tsx';
 import BasicFooter from '../../islands/BasicFooter.tsx';
+import Meta from '../../islands/Meta.tsx';
 import { getAllNew } from "../../utils/articles/helper.ts";
 
 
@@ -29,8 +30,8 @@ export const handler: Handlers<Article[]> = {
 };
 
 
-export default function BlogIndex({ data }: PageProps<Article[] | null>) {
-  if (!data) {
+export default function BlogIndex(props: PageProps<Article[] | null>) {
+  if (!props.data) {
     return <div>Not Found</div>;
   }
 
@@ -42,6 +43,11 @@ export default function BlogIndex({ data }: PageProps<Article[] | null>) {
         <link rel="stylesheet" href="/styles/anime.css" />
         <link rel="stylesheet" href="/styles/basic.css" />
         <link rel="stylesheet" href="/styles/articles/index.css"></link>
+        <Meta
+          title="記事一覧 - Daruo"
+          url={`${props.url.href}`}
+          description="だるおのブログ記事一覧です。"
+        />
       </Head>
       
       <header>
@@ -69,7 +75,7 @@ export default function BlogIndex({ data }: PageProps<Article[] | null>) {
       <main>
         <h2 class="cap">Articles</h2>
         <div class="articles container fadeRight">
-            {data.map((article) => (
+            {props.data.map((article) => (
               <a href={`/articles/${article.id}/status`} class="article card">
                 <div class="d-flex">
                   <div class="col-md-4">

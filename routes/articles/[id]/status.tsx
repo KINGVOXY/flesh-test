@@ -18,6 +18,7 @@ import { unixtimeToJST }  from "../../../utils/funcs/time.ts";
 
 import BasicHead    from "../../../islands/BasicHead.tsx";
 import BasicFooter  from "../../../islands/BasicFooter.tsx";
+import Meta from '../../../islands/Meta.tsx';
 
 
 export const handler: Handlers<ArticleSchema> = {
@@ -49,10 +50,10 @@ export const handler: Handlers<ArticleSchema> = {
 };
 
 
-export default function Neko({data}: PageProps<ArticleSchema>) {
-  const parsed = marked(data.content);
+export default function Neko(props: PageProps<ArticleSchema>) {
+  const parsed = marked(props.data.content);
   const content = sanitize(parsed);
-  const imageUrl = data.imageUrl? data.imageUrl : "/images/about.png";
+  const imageUrl = props.data.imageUrl? props.data.imageUrl : "/images/about.png";
 
   return (
     <Fragment>
@@ -61,7 +62,14 @@ export default function Neko({data}: PageProps<ArticleSchema>) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github-dark-dimmed.min.css" />
         <link rel="stylesheet" href="/styles/basic.css" />
         <link rel="stylesheet" href="/styles/articles/status.css" />
-        <title>{data.name} - Daruo</title>
+        <title>{props.data.name} - Daruo</title>
+        <Meta
+          title={`${props.data.name} - Daruo`}
+          url={`${props.url.href}`}
+          description={(content.length>80)?
+            content.substring(0, 80)+"...": content
+          }
+        />
       </Head>
 
       <header>
@@ -88,9 +96,9 @@ export default function Neko({data}: PageProps<ArticleSchema>) {
 
       <main>
         <div class="status container py-5">
-          <h2 class="name">{data.name}</h2>
-          <div class="createdAt">{unixtimeToJST(data.createdAt)}</div>
-          <div class="updatedAt">{unixtimeToJST(data.updatedAt)}</div>
+          <h2 class="name">{props.data.name}</h2>
+          <div class="createdAt">{unixtimeToJST(props.data.createdAt)}</div>
+          <div class="updatedAt">{unixtimeToJST(props.data.updatedAt)}</div>
 
           <hr/>
   
