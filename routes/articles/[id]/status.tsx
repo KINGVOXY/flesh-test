@@ -66,6 +66,7 @@ export default function Neko(props: PageProps<ArticleSchema>) {
         <Meta
           title={`${props.data.name} - Daruo`}
           url={`${props.url.href}`}
+          image={`${imageUrl}`}
           description={(content.length>80)?
             content.substring(0, 80)+"...": content
           }
