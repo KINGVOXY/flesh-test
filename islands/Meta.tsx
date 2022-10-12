@@ -25,11 +25,14 @@ export default function Meta(props: OgpProps) {
       <meta property="og:type" content={` ${ type } `} />
       <meta property="og:url" content={` ${ props.url } `} />
       <meta property="og:image" content={` ${ image } `} />
+      <meta property="og:image:width" content="600" />
+      <meta property="og:image:height" content="600" />
       <meta property="og:site_name" content="Daruo" />
       <meta property="og:description" content={` ${ props.description } `} />
       <meta property="hostname" content={` ${ hostname } `} />
 
       <meta property="twitter:site" content="@daruoUni" />
+      <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={` ${ props.title } `} />
       <meta property="twitter:description" content={` ${ props.description } `} />
       <meta property="twitter:image:src" content={`${image}`} />
