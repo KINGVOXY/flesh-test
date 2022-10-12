@@ -14,7 +14,7 @@ interface OgpProps {
 export default function Meta(props: OgpProps) {
   const hostname = Deno.env.get("DOMAIN");
   const type = (props.type)? props.type: "website";
-  let image = (props.image)? props.image: asset("/ogp.png");
+  let image = (props.image)? props.image: asset("/images/ogp.png");
   if(image?.startsWith("/")) {
     image = hostname + image;
   }
