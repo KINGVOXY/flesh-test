@@ -7,6 +7,7 @@ import {
 import { Head } from "$fresh/src/runtime/head.ts";
 import BasicHead from '../islands/BasicHead.tsx';
 import BasicFooter from '../islands/BasicFooter.tsx';
+import Meta from '../islands/Meta.tsx';
 import { getLimitNew } from "../utils/articles/helper.ts";
 
 
@@ -19,15 +20,15 @@ interface Article {
 
 
 export const handler: Handlers<Article[]> = {
-  async GET(_, ctx) {
+  async GET(req, ctx) {
     const articles = await getLimitNew(3);
-    return ctx.render(articles);
+    return ctx.render( articles);
   },
 };
 
 
-export default function Home({ data }: PageProps<Article[] | null>) {
-  if (!data) {
+export default function Home(props: PageProps< Article[] | null>) {
+  if (!props.data) {
     return <div>Not Found</div>;
   }
 
@@ -40,6 +41,11 @@ export default function Home({ data }: PageProps<Article[] | null>) {
         <link rel="stylesheet" href="/styles/basic.css" />
         <link rel="stylesheet" href="/styles/home/index.css" />
         <link rel="stylesheet" href="/styles/home/index.res.css" />
+        <Meta
+          title="Daruo"
+          url={`${props.url.href}`}
+          description="こんにちは、だるおです。"
+        />
       </Head>
       
       <header>
@@ -187,7 +193,7 @@ export default function Home({ data }: PageProps<Article[] | null>) {
             `}>工事中 <i class="far fa-solid fa-person-digging"></i></h3> */}
           <div id="articleBox" class="articles container op-0">
             {/* 記事が最大3件表示される */}
-            {data.map((article) => (
+            {props.data.map((article) => (
               <a href={`/articles/${article.id}/status`} class="article card">
                 <div class="d-flex">
                   <div class="col-md-4">
