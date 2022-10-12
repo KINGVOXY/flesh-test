@@ -16,7 +16,7 @@ export default function Meta(props: OgpProps) {
   const type = (props.type)? props.type: "website";
   let image = (props.image)? props.image: asset("/images/ogp.png");
   if(image?.startsWith("/")) {
-    image = hostname + image;
+    image = "https://" + hostname + image;
   }
 
   return (
