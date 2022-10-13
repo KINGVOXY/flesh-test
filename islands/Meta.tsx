@@ -35,7 +35,7 @@ export default function Meta(props: OgpProps) {
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:title" content={` ${ props.title } `} />
       <meta property="twitter:description" content={` ${ props.description } `} />
-      <meta property="twitter:image:src" content={`${image}`} />
+      <meta property="twitter:image" content={`${image}`} />
 
     </Fragment>
   );
