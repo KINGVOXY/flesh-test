@@ -53,6 +53,8 @@ export const handler: Handlers<ArticleSchema> = {
 export default function Neko(props: PageProps<ArticleSchema>) {
   const parsed = marked(props.data.content);
   const content = sanitize(parsed);
+  const createAt = unixtimeToJST(props.data.createdAt);
+  const updatedAt = unixtimeToJST(props.data.updatedAt);
   const imageUrl = props.data.imageUrl? props.data.imageUrl : "/images/about.png";
 
   return (
@@ -99,8 +101,8 @@ export default function Neko(props: PageProps<ArticleSchema>) {
       <main>
         <div class="status container pb-5">
           <h2 class="name">{props.data.name}</h2>
-          <div class="createdAt">{unixtimeToJST(props.data.createdAt)} 作成</div>
-          <div class="updatedAt">{unixtimeToJST(props.data.updatedAt)} 更新</div>
+          <div class="createdAt">{createAt} 作成</div>
+          {(createAt==updatedAt)?undefined:<div class="updatedAt">{updatedAt} 更新</div>}
 
           <hr/>
   
