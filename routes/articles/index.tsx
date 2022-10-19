@@ -51,7 +51,7 @@ export default function BlogIndex(props: PageProps<Article[] | null>) {
       </Head>
       
       <header>
-        <nav id="header" class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <nav id="header" class="navbar navbar-expand-lg navbar-light bg-white">
           <a id="logoLink" class="navbar-brand" href="/">
             Daruo
           </a>

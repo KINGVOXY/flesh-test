@@ -14,7 +14,11 @@ html::-webkit-scrollbar {
     /*Google Chrome、Safari、Microsoft Edge対応のスクロールバー非表示コード*/
 }
 
-
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+}
 
 section {
     min-height: 100vh;

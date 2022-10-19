@@ -5,6 +5,7 @@ main {
 .status {
     max-width: 700px;
     line-height: 1.5em ;
+    padding-top: 72px;
 }
 
 .status * {
