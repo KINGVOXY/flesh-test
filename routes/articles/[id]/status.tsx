@@ -75,7 +75,7 @@ export default function Neko(props: PageProps<ArticleSchema>) {
       </Head>
 
       <header>
-        <nav id="header" class="navbar navbar-expand-lg navbar-light bg-transparent">
+        <nav id="header" class="navbar navbar-expand-lg navbar-light bg-white">
           <a id="logoLink" class="navbar-brand" href="/">
             Daruo
           </a>
@@ -97,10 +97,10 @@ export default function Neko(props: PageProps<ArticleSchema>) {
       </header>
 
       <main>
-        <div class="status container py-5">
+        <div class="status container pb-5">
           <h2 class="name">{props.data.name}</h2>
-          <div class="createdAt">{unixtimeToJST(props.data.createdAt)}</div>
-          <div class="updatedAt">{unixtimeToJST(props.data.updatedAt)}</div>
+          <div class="createdAt">{unixtimeToJST(props.data.createdAt)} 作成</div>
+          <div class="updatedAt">{unixtimeToJST(props.data.updatedAt)} 更新</div>
 
           <hr/>
   
