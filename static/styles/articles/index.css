@@ -45,3 +45,47 @@ main {
     font-size: 1em;
     color: var(--dark);
 }
+
+.pagination {
+    justify-content: center;
+    margin: 3em;
+}
+
+.page > a,
+.first > a,
+.last > a {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.navi-active > a {
+    color: var(--dark);
+}
+
+.first { margin-right: .5em;}
+.last { margin-left: .5em; }
+
+.first,
+.last {
+    display: inline-block;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border: solid 1px #eff1f4;
+    padding: 5px;
+    font-size: 70%;
+    font-weight: normal;
+}
+
+.first:hover,
+.last:hover {
+    background-color: #F8F9FA;
+}
+
+.disabled {
+    display: none;
+}
