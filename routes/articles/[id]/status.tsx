@@ -10,10 +10,9 @@ import {
 import { Head } from "$fresh/src/runtime/head.ts";
 
 import { marked } from "marked";
-import sanitize   from "sanitize-html";
+import * as ammonia from "ammonia/mod.ts";
 
 import { findOne }        from "../../../utils/articles/helper.ts";
-import { ArticleSchema }  from "../../../utils/db/articles.ts";
 import { unixtimeToJST }  from "../../../utils/funcs/time.ts";
 
 import BasicHead    from "../../../islands/BasicHead.tsx";
@@ -21,7 +20,16 @@ import BasicFooter  from "../../../islands/BasicFooter.tsx";
 import Meta from '../../../islands/Meta.tsx';
 
 
-export const handler: Handlers<ArticleSchema> = {
+interface Data {
+  name: string;
+  imageUrl: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+
+export const handler: Handlers<Data> = {
   async GET(_, ctx) {
     const id = ctx.params.id;
     let data;
@@ -44,19 +52,23 @@ export const handler: Handlers<ArticleSchema> = {
         },
       });
     }
+
+    await ammonia.init();
+    const parsed = marked(data.content);
+    const content = ammonia.clean(parsed);
     
-    return ctx.render(data);
+    return ctx.render({
+      name: data.name,
+      imageUrl: data.imageUrl? data.imageUrl : "/images/about.png",
+      content: content,
+      createdAt: unixtimeToJST(data.createdAt),
+      updatedAt: unixtimeToJST(data.updatedAt)
+    });
   },
 };
 
 
-export default function Neko(props: PageProps<ArticleSchema>) {
-  const parsed = marked(props.data.content);
-  const content = sanitize(parsed);
-  const createAt = unixtimeToJST(props.data.createdAt);
-  const updatedAt = unixtimeToJST(props.data.updatedAt);
-  const imageUrl = props.data.imageUrl? props.data.imageUrl : "/images/about.png";
-
+export default function Neko(props: PageProps<Data>) {
   return (
     <Fragment>
       <Head>
@@ -69,9 +81,9 @@ export default function Neko(props: PageProps<ArticleSchema>) {
           title={`${props.data.name} - Daruo`}
           type="article"
           url={`${props.url.href}`}
-          image={`${imageUrl}`}
-          description={(content.length>80)?
-            content.substring(0, 80)+"...": content
+          image={`${props.data.imageUrl}`}
+          description={(props.data.content.length>80)?
+            props.data.content.substring(0, 80)+"...": props.data.content
           }
         />
       </Head>
@@ -101,17 +113,18 @@ export default function Neko(props: PageProps<ArticleSchema>) {
       <main>
         <div class="status container pb-5">
           <h2 class="name">{props.data.name}</h2>
-          <div class="createdAt">{createAt} 作成</div>
-          {(createAt==updatedAt)?undefined:<div class="updatedAt">{updatedAt} 更新</div>}
+          <div class="createdAt">{props.data.createdAt} 作成</div>
+          {(props.data.createdAt==props.data.updatedAt)?undefined:<div class="updatedAt">{props.data.updatedAt} 更新</div>}
 
           <hr/>
   
   
           <div class="himg">
-              <img src={`${imageUrl}`} />
+              <img src={`${props.data.imageUrl}`} />
           </div>
   
-          <div id="content" class="content container" dangerouslySetInnerHTML={{__html: content}}></div>
+          {/* <div id="content" class="content container"></div> */}
+          <div id="content" class="content container" dangerouslySetInnerHTML={{__html: props.data.content}}></div>
         </div>
       </main>
       <div class="divider divider-dashed"></div>
